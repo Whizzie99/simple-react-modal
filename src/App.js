@@ -1,17 +1,19 @@
-import { useState } from 'react';
-import Modal from './Modal';
+// import { useState } from 'react';
+// import Modal from './Modal';
+import { sampleData } from './sampleData';
+import Card from './card';
 import './App.css';
 
 function App() {
-	const [showModal, setShowModal] = useState(false);
+	// const [showModal, setShowModal] = useState(false);
 
 	return (
 		<>
-			<div>
-				hello
-				<button onClick={() => setShowModal(true)}>click to open modal</button>
+			<div className="card-list">
+				{sampleData.map((data) => (
+					<Card key={data.name} name={data.name} email={data.email} />
+				))}
 			</div>
-			{showModal && <Modal setShowModal={setShowModal} />}
 		</>
 	);
 }
